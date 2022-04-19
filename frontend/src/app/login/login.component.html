@@ -1,0 +1,25 @@
+<div class="container mt-4 flex-column sticky-footer-wrapper min-vh-100">
+  <form class="row col-6" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <p><strong>Login</strong></p>
+    <div class="form-group row col-12 mb-2">
+      <label for="email" class="form-label">Email<span style="color:darkred">*</span></label>
+      <input type="email" class="form-control" id="email" formControlName="email" placeholder="name@example.com" aria-label="Email">
+      <span class="validator-message" *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched"><small style="color:darkred"> E-Mail muss gültig sein!</small></span>
+    </div>
+    <div class="form-group row col-12 mb-2">
+      <label for="password" class="form-label">Passwort<span style="color:darkred">*</span></label>
+      <input type="password" class="form-control" id="password" formControlName="password" aria-required="true"
+             required>
+    </div>
+    <div class="form-group row col-12 mt-3">
+      <button type="submit" class="btn btn-secondary btn-block" >Einloggen</button>
+    </div>
+  </form>
+  <div class="row col-6 mt-5">
+    <p><strong>Noch keinen Account?</strong></p>
+    <p>Sie können sich unter folgendem Link registrieren.</p>
+    <div class="row col-12">
+      <button type="button" class="btn btn-outline-secondary btn-block" routerLink="/registration">Zur Registrierung</button>
+    </div>
+  </div>
+</div>

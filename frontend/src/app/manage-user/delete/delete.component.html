@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Möchten sie diesen Nutzer wirklich löschen?</h4>
+  <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="detailForm">
+    <div class="form-group">
+      <label for="inpFN">Vorname</label>
+      <div class="input-group">
+        <input id="inpFN" class="form-control" formControlName="firstNameControl" value="{{ currentUser?.firstname }}" readonly>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inpLN">lastname</label>
+      <div class="input-group">
+        <input id="inpLN" class="form-control" formControlName="lastNameControl" value="{{ currentUser?.lastname }}" readonly>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inpId">Email</label>
+      <div class="input-group">
+        <input id="inpId" class="form-control" formControlName="emailControl" value="{{ currentUser?.email }}" readonly>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="deleteUser(id)">Löschen</button>
+  <button type="button" class="btn btn-default" (click)="closeModal()">Abbrechen</button>
+</div>

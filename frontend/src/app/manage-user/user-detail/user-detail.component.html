@@ -1,0 +1,40 @@
+<div class="container flex-column sticky-footer-wrapper min-vh-100">
+  <button class="btn"
+          (click)="locationBack()"><i-bs name="arrow-left"></i-bs><small> zur Nutzerübersicht</small>
+  </button>
+   <div class="m-sm-5">
+     <p><strong>Persönliche Daten</strong></p>
+    <form [formGroup]="detailForm">
+      <div class="form-group">
+        <label for="id">Id</label>
+        <div class="input-group">
+          <input id="id" class="form-control" formControlName="idControl" value="{{ currentUser?._id }}" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="firstName">Vorname</label>
+        <div class="input-group">
+          <input id="firstName" class="form-control" formControlName="firstNameControl" value="{{ currentUser?.firstname }}" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName">lastname</label>
+        <div class="input-group">
+          <input id="lastName" class="form-control" formControlName="lastNameControl" value="{{ currentUser?.lastname }}" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-group">
+          <input id="email" class="form-control" formControlName="emailControl" value="{{ currentUser?.email }}" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="role">Role</label>
+        <div class="input-group">
+          <input id="role" class="form-control" formControlName="roleControl" value="{{ currentUser?.role }}" readonly>
+        </div>
+      </div>
+    </form>
+   </div>
+ </div>

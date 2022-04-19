@@ -1,0 +1,50 @@
+<div class="container mt-4 flex-column sticky-footer-wrapper min-vh-100">
+  <form class="row g-3" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <p>Bitte füllen Sie das untenstehende Formular vollständig aus.</p>
+    <div class="form-group row col-12 mb-2">
+      <label for="firstname" class="form-label">Vorname<span style="color:darkred">*</span></label>
+      <input type="text" class="form-control" id="firstname" formControlName="firstName" aria-label="Vorname">
+      <app-validation-msg [display]="registerForm.controls['firstName'].hasError('required') && registerForm.controls['firstName'].touched" msg="Geben sie ihren Namen ein!"></app-validation-msg>
+    </div>
+    <div class="form-group row col-12 col-sm-12 mb-2">
+      <label for="lastName" class="form-label">Nachname<span style="color:darkred">*</span></label>
+      <input type="text" class="form-control" id="lastName" formControlName="lastName" aria-label="Nachname">
+      <app-validation-msg [display]="registerForm.controls['lastName'].hasError('required') && registerForm.controls['lastName'].touched" msg="Geben sie einen Nachnamen ein!">
+        </app-validation-msg>
+    </div>
+    <div class="form-group row col-12 mb-2">
+      <label for="email" class="form-label">Email-Adresse angeben<span style="color:darkred">*</span></label>
+      <input type="text" class="form-control" id="email" formControlName="email"  placeholder="name@example.com">
+      <app-validation-msg [display]="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].touched" msg="Geben sie eine gültige Email-Adresse ein!"></app-validation-msg>
+    </div>
+
+    <div class="form-group row col-12 mb-2">
+      <label for="password" class="form-label">Passwort eingeben<span style="color:darkred">*</span></label>
+      <input formControlName="password" type="password"
+             name="password" id="password" class="form-control" aria-required="true"
+             required>
+      <app-validation-msg [display]="registerForm.controls['password'].hasError('minLength(8)') && registerForm.controls['password'].touched" msg="Min. 8 Zeichen lang."></app-validation-msg>
+    <!--  <app-validation-msg [display]="registerForm.controls['password'].hasError('pattern') && registerForm.controls['password'].touched" msg="Soll große und kleine Buchstaben, Zahlen und Zeichen enthalten">
+    </app-validation-msg> -->
+      <app-validation-msg [display]="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched" msg="Password eingeben."></app-validation-msg>
+    </div>
+
+    <div class="form-group row col-12 mb-2">
+      <label for="passwordrepeat" class="form-label">Passwort wiederholen<span style="color:darkred">*</span></label>
+      <input formControlName="passwordrepeat" type="password"
+             name="passwordrepeat" id="passwordrepeat" class="form-control" aria-required="true"
+             required>
+    </div>
+    <div class="form-group row col-12">
+      <label for="role" class="form-label">Nutzerrolle <span style="color:darkred">*</span></label>
+      <select id="role" formControlName="role" class="form-select custom-select">
+        <option selected></option>
+        <option *ngFor="let role of roles" [value]="role.abbreviation">{{ role.name }}</option>
+      </select>
+      <app-validation-msg [display]="registerForm.controls['role'].hasError('required') && registerForm.controls['role'].touched" msg="Bitte eine Rolle wählen!"></app-validation-msg>
+    </div>
+    <div class="form-group row col-12 mt-3">
+        <button type="submit" class="btn btn-primary btn-block" >Registrieren</button>
+    </div>
+  </form>
+</div>

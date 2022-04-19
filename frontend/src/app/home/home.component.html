@@ -1,0 +1,13 @@
+<main class="flex-column sticky-footer-wrapper min-vh-100" role="main">
+  <app-login-msg *ngIf="hasAccess('admin')"></app-login-msg>
+  <div class="container mt-2">
+    <div class="p-3 p-md-5 text-white rounded bg-dark">
+      <div class="col-md-6 px-0">
+        <h1 class="display-4 font-italic">Der Blog-Beitrag</h1>
+        <p class="lead my-3">Lorem ipsum dolor sit amet, consetetur sadipscing. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        <p class="lead mb-0"><a routerLink="" class="text-white font-weight-bold">Klicke zum weiterlesen...</a></p>
+      </div>
+    </div>
+      <app-registration></app-registration>
+    </div>
+</main>

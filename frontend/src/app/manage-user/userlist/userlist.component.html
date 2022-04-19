@@ -1,0 +1,35 @@
+<div class="container flex-column sticky-footer-wrapper min-vh-100">
+  <table class="table caption-top">
+    <caption>Liste aller Mitglieder</caption>
+    <thead>
+    <tr>
+      <th scope="col ">Nr</th>
+      <th scope="col">Vorname</th>
+      <th scope="col">Nachname</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Rolle</th>
+      <th scope="col">Löschen</th>
+      <th scope="col">Detailansicht</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let member of members; let i=index; ">
+      <td>{{ i+1 }}</td>
+      <td>{{ member.firstname }}</td>
+      <td>{{ member.lastname }}</td>
+      <td>{{ member.email }}</td>
+      <td>{{ member.role }}</td>
+      <td>
+        <i-bs class="btn" name="trash"
+              (click)="open(member._id)">
+        </i-bs>
+      </td>
+      <td>
+        <i-bs class="btn" name="info-square"
+              [routerLink]="['./user-detail', member._id]">
+        </i-bs>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
